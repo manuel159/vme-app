@@ -1,0 +1,17 @@
+{
+  "name": "vme",
+  "version": "1.0.0",
+  "description": "la visualización de modelos econometricos por medio de Node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "JS",
+    "CSS",
+    "Html"
+  ],
+  "author": "Victor Manuel Gastelum Coronado",
+  "license": "ISC"
+}
