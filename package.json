@@ -1,29 +1,26 @@
 {
-  "name": "vme",
+  "name": "primera-app",
   "version": "1.0.0",
-  "description": "la visualización de modelos econometricos por medio de Node JS",
+  "description": "aplicacion con motor de vistas y metodos de HTTP",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "keywords": [
-    "Node",
-    "JS",
-    "CSS",
-    "Html"
+    "ejs",
+    "express",
+    "mode",
+    "js",
+    "bootstrap"
   ],
-  "author": "Victor Manuel Gastelum Coronado",
+  "author": "Victor El Gastelum Coronado",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^3.1.6",
-    "express-ejs-layouts": "^2.5.1",
-    "npm": "^7.23.0"
-  },
-  "devDependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.12"
+    "express-ejs-layouts": "^2.5.0",
+    "nodemon": "^2.0.6"
   }
 }
