@@ -1,7 +1,7 @@
 {
-  "name": "primera-app",
+  "name": "vme",
   "version": "1.0.0",
-  "description": "aplicacion con motor de vistas y metodos de HTTP",
+  "description": "Desarrollo de página web para la visualización de modelos econométricos por medio de Node JS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

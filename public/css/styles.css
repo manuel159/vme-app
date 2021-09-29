@@ -4,17 +4,16 @@ body {
   }
   
   header .navbar {
-    border-radius: 0;
-    margin: 0;
+    border-radius: 50px;
+    margin-top: 5px;
   }
   
   .hero {
-    background-image: url(../img/udaloy.jpg);
     background-repeat: no-repeat;;
     background-size: cover;
     background-position: center center;
     padding: 50px 0;
-    min-height: 650px;
+    /*min-height: 650px;*/
     position: relative;
   }
   
@@ -26,12 +25,12 @@ body {
   }
   
   .hero-content h2 {
-    color: #FFF;
+    color: rgb(0, 0, 0);
     font-size: 80px;
   }
   
   .hero-content p {
-    color: #FFF;
+    color: rgb(0, 0, 0);
     font-size: 40px;
     margin-bottom: 30px;
   }
@@ -53,3 +52,13 @@ body {
     background: #222;
     text-align: center;
   }
+  /*
+  .grafic{
+    background-image: url(../img/índice\ baja\ california.png);
+    background-repeat: no-repeat;;
+    background-position: center center;
+    padding: 50px 0;
+    min-height: 200px;
+    position: relative;
+  }
+  */
