@@ -12,22 +12,22 @@ router.get('/', function (req, res){
     res.render('pages/home', {extra: "Manuel Gastelum"});
 });
 
-//informacion para abaut
-router.get('/about', (req, res)=>{
+//informacion para contact
+router.get('/contact', (req, res)=>{
     var users = [
-        { name: 'Holly', email: 'holly@scotch.io', avatar: 'http://placekitten.com/300/300'},
-        { name: 'Chris', email: 'chris@scotch.io', avatar: 'http://placekitten.com/400/400'},
-        { name: 'Ado', email: 'Ado@scotch.io', avatar: 'http://placekitten.com/500/500'},
-        { name: 'Samantha', email: 'Samantha@scotch.io', avatar: 'http://placekitten.com/700/700'}
+        { name: 'Estudiante 1', email: 'e1@tectijuana.edu.mx', avatar: 'http://placekitten.com/301/300'},
+        { name: 'Estudiante 2', email: 'e2@tectijuana.edu.mx', avatar: 'http://placekitten.com/302/300'},
+        { name: 'Estudiante 3', email: 'e3@tectijuana.edu.mx', avatar: 'http://placekitten.com/303/300'},
+        { name: 'Estudiante 4', email: 'e4@tectijuana.edu.mx', avatar: 'http://placekitten.com/304/300'}
         
     ];
-    res.render('pages/about',{usr:users});
+    res.render('pages/contact',{usr:users});
 });
 
 
 //este es el get contact redirige a contacto
-router.get('/contact', (req, res)=>{
-    res.render('pages/contact');
+router.get('/about', (req, res)=>{
+    res.render('pages/about');
 });
 
 
