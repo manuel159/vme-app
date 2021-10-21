@@ -36,19 +36,6 @@ router.post('/contacto', (req, res)=>{
     
 });
 
-//Los datos que apareceran en ty se realizan aqui
-router.get('/contacto', (req, res)=>{
-    const nom = req.query.name;
-    console.log( ` ${req.query} :  ${nom}`);
-    console.log("Email: " + req.query.email);
-    console.log("Mensaje: " + req.query.message);
-    //Para que se envien las 2 variables
-    const personal = {mess1: 'Gracias, querido ' + req.query.name + '. te enviamos un correo a ' + req.query.email};
-    res.render('pages/thank-you', {personal: personal});
-});
-
-
-
 router.get('/thank-you', (req, res)=>{
     res.render('pages/thank-you');
 });
