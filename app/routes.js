@@ -1,6 +1,43 @@
 const express = require('express');
 const path = require('path');
 
+const jsonfile = {
+    "jsonarray": [
+    {
+       "Anio":2007,
+       "PIB":7.7
+    },
+    {
+       "Anio":2008,
+       "PIB":9.5
+    },
+    {
+       "Anio":2009,
+       "PIB":3.4
+    },
+    {
+       "Anio":2010,
+       "PIB":5.8
+    },
+    {
+        "Anio":2011,
+        "PIB":2.5
+    },
+    {
+        "Anio":2012,
+        "PIB":3.6
+     }
+ ]
+ };
+
+const anio = jsonfile.jsonarray.map(function(e) {
+    return e.Anio;
+ });
+
+const pib = jsonfile.jsonarray.map(function(e) {
+    return e.P;
+ });
+
 // creamos un objeto ruta
 const router = express.Router();
 
@@ -24,10 +61,11 @@ router.get('/contact', (req, res)=>{
     res.render('pages/contact',{usr:users});
 });
 
-
 //este es el get contact redirige a contacto
 router.get('/about', (req, res)=>{
-    res.render('pages/about');
+    var etiquetas = ['2007', '2008', '2009', '2010', '2011', '2012'];
+    var datos = [7.7, 9.5, 3.4, 5.8, 2.5, 3.6];
+    res.render('pages/about',{eti:etiquetas, data:datos});
 });
 
 
@@ -39,3 +77,4 @@ router.post('/contacto', (req, res)=>{
 router.get('/thank-you', (req, res)=>{
     res.render('pages/thank-you');
 });
+
