@@ -6,14 +6,21 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 app.use(expressLayouts);
 
+/*
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+*/
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const router = require('./app/routes');
 app.use('/', router);
+
+
 
 app.listen(port, function() {
     console.log('app started, the cat on the table');
