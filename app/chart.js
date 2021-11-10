@@ -1,62 +1,34 @@
 const express = require('express');
-
 const path = require('path');
-
-// creamos un objeto ruta
 const router = express.Router();
-
-// exportamos nuestra ruta
 module.exports = router;
 
+const mysqlConnection  = require('../database.js');
 
+var data;
 
+router.get('/', (req, res) => {
+   mysqlConnection.query('SELECT * FROM TABLA1', (err, rows, fields) => {
+     if(!err) {
+       data = res.json;
+     } else {
+       console.log(err);
+     }
+   });  
+ });
 
-const jsonfile = {
-   "jsonarray": [
-   {
-      "Anio":2007,
-      "PIB":7.7
-   },
-   {
-      "Anio":2008,
-      "PIB":9.5
-   },
-   {
-      "Anio":2009,
-      "PIB":3.4
-   },
-   {
-      "Anio":2010,
-      "PIB":5.8
-   },
-   {
-      "Anio":2011,
-      "PIB":2.5
-   },
-   {
-      "Anio":2012,
-      "PIB":3.6
-   }
-]
-};
-
-const anio = jsonfile.jsonarray.map(function(e) {
-   return e.Anio;
-});
-
-const pib = jsonfile.jsonarray.map(function(e) {
-   return e.P;
-});
+var etiquetas = data['año'];
+var datos = data['pib']
 
 var canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 const myChart = new Chart(ctx, {
    type: 'bar',
    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: etiquetas,
       datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'PIB Baja California',
+            data: datos,
             backgroundColor: [
                'rgba(255, 99, 132, 0.2)',
                'rgba(54, 162, 235, 0.2)',
