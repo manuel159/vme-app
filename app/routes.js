@@ -7,6 +7,9 @@ const router = express.Router();
 // exportamos nuestra ruta
 module.exports = router;
 
+//exportamos el modulo de las bases de datos
+const mysqlConnection = require('./database');
+
 //hacemos una ruta al home
 router.get('/', function (req, res){
     res.render('pages/home');
@@ -26,7 +29,9 @@ router.get('/contact', (req, res)=>{
 
 //este es el get contact redirige a contacto
 router.get('/about', (req, res)=>{
-    res.render('pages/about.html');
+    var datos = [12, 19, 3, 5, 2, 3];
+    var etiquetas = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+    res.render('pages/about', {items : datos, labels : etiquetas}); 
 });
 
 
