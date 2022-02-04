@@ -1,31 +1,47 @@
 <%- contentFor('heros') %>
-
+<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
 <section class="hero">
     <div class="hero-content">
 
     </div>
 </section>
-<script 
-    src="https://cdn.jsdelivr.net/npm/chart.js">
-    
-</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"> </script>
     <div class="jumbotron text-center">
 
+        <button id="0" type="button" class="btn btn-primary btn-lg">Grafica de Barra</button>
+        <button id="1" type="button" class="btn btn-primary btn-lg">Grafica Lineal</button>
 
-        <h2>Graficas</h2>
-
+        <h2>Grafica</h2>
         <div class="chart_box">
-            <div id="canvas"><canvas id="myChart"></canvas></div>
+            <canvas id="myChart"></canvas>
         </div>
 
-    <h2>Tablas</h2>
-        
-    
+    <div class="container">
+        <h2>Tabla</h2>
+        <table id="Saxofon" class="table table-striped">
+            
+            <tr>
+                <th class="text-center" >Año</th>
+                <th class="text-center" >Poblacion</th>
+            </tr>
+            
+            <tbody>
+            <tr>
+                <td id="Tdatos1"></td>
+                <td id="Tdatos2"></td>
+            </tr>   
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 
 
 <script type="text/javascript">
+
+/********************************GRAFICA 1*********************************/
 
     var datos = JSON.stringify("<%- items %>");
     datos = datos.replace('"','')
@@ -36,13 +52,14 @@
     etiquetas = etiquetas.replace('"','');
     const etiqseparadas = etiquetas.split(',');
 
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
+    
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: etiqseparadas,
             datasets: [{
-                label: 'PIB B.C.',
+                label: 'Poblacion B.C.',
                 data: datosSeparados,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -63,12 +80,80 @@
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
     });
+
+    document.getElementById("0").addEventListener('click', () => {
+        chart.config.data = {
+            labels: etiqseparadas,
+            datasets: [{
+                label: "Poblacion B.C.",
+                data: datosSeparados,
+                type: 'bar',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }],
+        }
+        chart.update();
+    });
+
+    document.getElementById("1").addEventListener('click', () => {
+        chart.config.data = {
+            labels: etiqseparadas,
+            datasets: [{
+                label: "Poblacion B.C.",
+                data: datosSeparados,
+                type: 'line',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }],
+        }
+        chart.update();
+    });
+
+
+
+/********************************TABLA*********************************/
+
+
+    var t = "";
+    for (var i = 0; i < datosSeparados.length; i++){
+        var tr = "<tr>";
+        tr += "<td>"+etiqseparadas[i]+"</td>";
+        tr += "<td>"+datosSeparados[i]+"</td>";
+        tr += "</tr>";
+        t += tr;
+    }
+    document.getElementById("Saxofon").innerHTML += t;
+
+
     </script>
